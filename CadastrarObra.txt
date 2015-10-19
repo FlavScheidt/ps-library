@@ -1,9 +1,10 @@
-CASO DE USO: Cadastrar Obra
-ATORES: Bibliotecário
-PROPÓSITO:      Cadastrar um novo exemplar (livro ou periódico) no sistema para que
-                possa ser emprestado pelos usuários da biblioteca.
-DESCRIÇÃO:      Este caso de uso se inicia quando o bibliotecário recebe um novo exemplar para cadastro.
-REFERÊNCIAS:    
+CASO DE USO:            Cadastrar Obra
+ATORES PRIMÁRIOS:       Bibliotecário
+ATORES SECUNDÁRIOS:    N/A
+PROPÓSITO:              Cadastrar uma novo orba (livro ou periódico) no sistema
+DESCRIÇÃO:              Este caso de uso se inicia quando o bibliotecário recebe uma nova obra para cadastro
+REFERÊNCIAS:   
+PRÉ CONDIÇÕES:          N/A 
 FLUXO TÍPICO:   
                 Bibliotecário                                   Sistema
                 1-Entra no módulo de cadastro
@@ -48,5 +49,5 @@ FLUXOS ALTERNATIVOS:
                                                                 
                                                                 8-Pergunta ao usuário se quer atualizar as informações
                 9-Responde não 
-                                                                10-Retorna sucesso       
+                                                                10-Encerra caso de uso       
 ---------------------------------------------

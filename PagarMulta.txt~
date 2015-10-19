@@ -1,0 +1,42 @@
+CASO DE USO: Pagar Multa
+ATORES PRIMÁRIOS: Bibliotecário
+ATORES SECUNDÁRIOS: Usuário
+PROPÓSITO:      Bibliotecário registrar o pagamento de uma multa
+DESCRIÇÃO:      Este caso de uso se inicia quando o bibliotecário recebe o pagamento da multa
+REFERÊNCIAS:    Devolver Exemplar
+PRÉ CONDIÇÕES:  É necessário que a multa exista
+FLUXO TÍPICO:   
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de pagamento de multa
+                                                                2-Pede os dados do usuário
+                                                                
+                                                                3-Busca usuário
+                                                                
+                                                                4-Se existir usuário, busco se há multa
+                                                                
+                                                                5-Se há multa, registra pagamento
+                                                                
+                                                                6-Retorna sucesso
+                
+SEQUÊNCIA NÃO TÍPICA: 
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de pagamento de multa
+                                                                2-Pede os dados do usuário
+                                                                
+                                                                3-Busca usuário
+                                                                
+                                                                4-Se não existir usuário, retorna erro
+
+
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de pagamento de multa
+                                                                2-Pede os dados do usuário
+                                                                
+                                                                3-Busca usuário
+                                                                
+                                                                4-Se existir usuário, busco se há multa
+                                                                
+                                                                5-Se não há multa, retorna erro
+                                                                
+FLUXOS ALTERNATIVOS: N/A
+---------------------------------------------
