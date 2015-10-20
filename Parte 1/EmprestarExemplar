@@ -1,0 +1,62 @@
+CASO DE USO: Emprestar Exemplar
+ATORES PRIMÁRIOS: Bibliotecário
+ATORES SECUNDÁRIOS: Usuário
+PROPÓSITO:      Bibliotecário registrar o empréstimo de um exemplar
+DESCRIÇÃO:      Este caso de uso se inicia quando o bibliotecário recebe os dados do empréstimo
+REFERÊNCIAS:    CadastrarUsuario
+PRÉ CONDIÇÕES:  Exemplar e obra necessitam estar cadastrados
+FLUXO TÍPICO:   
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de empréstimo
+                                                                2-Pede os dados do exemplar
+                3-Insere dados do exemplar
+                                                                4-Busca exemplar
+                                                                
+                                                                5-Se exemplar existe, pede dados do usuário
+                6-Insere dados do usuário
+                                                                7-Busca usuário
+                                                                
+                                                                8-Se usuário existe, verifica se usuário está bloqueado
+                                                                
+                                                                9-Se não, efetua empréstimo
+                                                                
+                                                                10-Retorna sucesso
+                
+SEQUÊNCIA NÃO TÍPICA: 
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de empréstimo
+                                                                2-Pede os dados do exemplar
+                3-Insere dados do exemplar
+                                                                4-Busca exemplar
+                                                                
+                                                                5-Se exemplar não existe, retorna erro
+                                                                
+                                                                
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de empréstimo
+                                                                2-Pede os dados do exemplar
+                3-Insere dados do exemplar
+                                                                4-Busca exemplar
+                                                                
+                                                                5-Se exemplar existe, pede dados do usuário
+                6-Insere dados do usuário
+                                                                7-Busca usuário
+                                                                
+                                                                8-Se usuário existe não existe, retorna erro
+                                                                
+                
+                Bibliotecário                                   Sistema
+                1-Entra no módulo de empréstimo
+                                                                2-Pede os dados do exemplar
+                3-Insere dados do exemplar
+                                                                4-Busca exemplar
+                                                                
+                                                                5-Se exemplar existe, pede dados do usuário
+                6-Insere dados do usuário
+                                                                7-Busca usuário
+                                                                
+                                                                8-Se usuário existe, verifica se usuário está bloqueado
+                                                                
+                                                                9-Se o usuário está bloqueado, retorna erro
+FLUXOS ALTERNATIVOS: N/A
+---------------------------------------------
