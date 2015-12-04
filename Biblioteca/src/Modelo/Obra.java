@@ -5,6 +5,10 @@ public abstract class Obra {
 	private Integer id;
 	private String nome;
 	private Integer ano;
+	 
+	public Obra() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
