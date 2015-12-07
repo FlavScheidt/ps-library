@@ -8,6 +8,7 @@ public class Usuario {
 	private Integer telefone;
 	private String tipo;
 
+	//Getters & Setters
 	public Integer getId() {
 		return id;
 	}
@@ -48,4 +49,14 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
+	//Construtores
+	public Usuario(Integer id, String cpf, String nome, Integer telefone,
+			String tipo) {
+		super();
+		this.id = id;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.telefone = telefone;
+		this.tipo = tipo;
+	}
 }

@@ -5,6 +5,7 @@ public class Exemplar {
 	private Integer id;
 	private Obra obra;
 
+	//Getters & setters
 	public Integer getId() {
 		return id;
 	}

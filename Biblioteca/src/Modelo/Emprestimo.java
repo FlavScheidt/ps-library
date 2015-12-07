@@ -12,6 +12,7 @@ public class Emprestimo {
 	private Multa multa;
 	private Usuario usuario;
 
+	//Getters & setters
 	public Integer getId() {
 		return id;
 	}
@@ -66,6 +67,34 @@ public class Emprestimo {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	//Construtores
+	public Emprestimo(Integer id, Date dataEmprestimo, Date dataDevolucao,
+			Date dataPrevistaDevolucao, Exemplar exemplar, Multa multa,
+			Usuario usuario) {
+		super();
+		this.id = id;
+		this.dataEmprestimo = dataEmprestimo;
+		this.dataDevolucao = dataDevolucao;
+		this.dataPrevistaDevolucao = dataPrevistaDevolucao;
+		this.exemplar = exemplar;
+		this.multa = multa;
+		this.usuario = usuario;
+	}
+	
+	//Métodos
+	public Emprestimo buscaEmprestimo(Integer id_exemplar)
+	{
+		return null;
+		
+	}
+	
+	public void registraDevolucao()
+	{
+		long agora = System.currentTimeMillis();
+
+		this.dataDevolucao = new Date (agora);
 	}
 
 }
