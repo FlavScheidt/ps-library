@@ -30,4 +30,12 @@ public class Multa {
 		this.valor = valor;
 	}
 
+	//Construtores
+	public Multa(Integer id, Boolean pago, Float valor) {
+		super();
+		this.id = id;
+		this.pago = pago;
+		this.valor = valor;
+	}
+	
 }

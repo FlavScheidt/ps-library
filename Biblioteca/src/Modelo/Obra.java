@@ -57,5 +57,10 @@ public abstract class Obra {
 		//Adicona na lista do main
 		listaExemplar.add(exemplar);
 	}
+	
+	public Integer numExemplares()
+	{
+		return this.listaExemplar.size();
+	}
 
 }

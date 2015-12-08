@@ -84,17 +84,23 @@ public class Emprestimo {
 	}
 	
 	//Métodos
-	public Emprestimo buscaEmprestimo(Integer id_exemplar)
-	{
-		return null;
-		
-	}
-	
 	public void registraDevolucao()
 	{
+		//Insere data atual na data de devolução
 		long agora = System.currentTimeMillis();
-
 		this.dataDevolucao = new Date (agora);
+		
+		//Verifica se precisa criar multa
+		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) < 0)
+		{
+			//Gerar id da multa. Nao sei como fazer
+			Integer id = 0;
+			Float valor = (float) 0.0;
+			Multa multa = new Multa(id, false, valor);
+			
+			this.multa = multa;
+		}
+		
 	}
 
 }
