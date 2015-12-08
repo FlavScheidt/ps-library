@@ -12,7 +12,7 @@ public class Emprestimo {
 	private Multa multa;
 	private Usuario usuario;
 
-	//Getters & setters
+	// Getters & setters
 	public Integer getId() {
 		return id;
 	}
@@ -69,7 +69,7 @@ public class Emprestimo {
 		this.usuario = usuario;
 	}
 
-	//Construtores
+	// Construtores
 	public Emprestimo(Integer id, Date dataEmprestimo, Date dataDevolucao,
 			Date dataPrevistaDevolucao, Exemplar exemplar, Multa multa,
 			Usuario usuario) {
@@ -82,25 +82,35 @@ public class Emprestimo {
 		this.multa = multa;
 		this.usuario = usuario;
 	}
-	
-	//Métodos
-	public void registraDevolucao()
-	{
-		//Insere data atual na data de devolução
-		long agora = System.currentTimeMillis();
-		this.dataDevolucao = new Date (agora);
-		
-		//Verifica se precisa criar multa
-		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) < 0)
-		{
-			//Gerar id da multa. Nao sei como fazer
-			Integer id = 0;
-			Float valor = (float) 0.0;
-			Multa multa = new Multa(id, false, valor);
-			
+
+	// Métodos
+	public void registraDevolucao() {
+		// Insere data atual na data de devolução
+		this.dataDevolucao = new Date();
+
+		// Verifica se precisa criar multa
+		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) > 0) {
+			// Calcula valor da multa
+			int valor = 5 * (int) ((this.dataDevolucao.getTime() - this.dataPrevistaDevolucao
+					.getTime()) / (1000 * 60 * 60 * 24));
+
+			// Cria multa
+			Multa multa = new Multa(false, valor);
 			this.multa = multa;
 		}
-		
+
+	}
+
+	public Boolean verificaBloqueio() {
+		// Verifica se possui multa
+		if (this.multa != null) {
+			return !this.multa.getPago();
+		}
+		// verifica se precisa devolver
+		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) > 0) {
+			return true;
+		}
+		return false;
 	}
 
 }

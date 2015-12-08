@@ -8,37 +8,39 @@ import Modelo.Emprestimo;
 import Modelo.Multa;
 
 public class CtrlPagarMulta {
-	
-	public void pagarMulta (String cpf, List<Usuario> listaUsuario, List<Emprestimo> listaEmprestimo)
-	{
+
+	public void pagarMulta(String cpf, List<Usuario> listaUsuario,
+			List<Emprestimo> listaEmprestimo) {
+		
 		Boolean pago = true;
-		
-		//Busca o usuário
+
+		// Busca o usuário
 		Usuario usuario = buscaUsuario(cpf, listaUsuario);
-		
-		//Busca Empréstimos ativos do usuário
-		List<Emprestimo> listaEmprestimosAtivos = buscaEmprestimosAtivos(usuario, listaEmprestimo);
-		
-		//Percorre Lista buscando se algum deles tem multa
-		for(Emprestimo ativo : listaEmprestimosAtivos)
-		{
-			//Esse null tá errado. Não sei como colocar
-			if (ativo.getMulta() != NULL)
-			{
-				Multa multa = new Multa(ativo.getMulta().getId(), pago, ativo.getMulta().getValor());
-				ativo.setMulta(multa);
+
+		// Percorre Lista buscando se algum deles tem multa
+		for (Emprestimo emprestimo : listaEmprestimo) {
+			if (emprestimo.getUsuario() == usuario) {
+
+				// Esse null tá errado. Não sei como colocar
+				if (emprestimo.getMulta() != null) {
+					
+					if (!emprestimo.getMulta().getPago()) {
+						
+					}
+					//Multa multa = new Multa(pago, emprestimo.getMulta().getValor());
+					//emprestimo.setMulta(multa);
+				}
 			}
 		}
-		
+
 	}
-	
-	public Usuario buscaUsuario(String CPF, List<Usuario> listaUsuario)
-	{
-		return null;
-	}
-	
-	public List<Emprestimo> buscaEmprestimosAtivos(Usuario usuario, List<Emprestimo> listaEmprestimo)
-	{
+
+	public Usuario buscaUsuario(String cpf, List<Usuario> listaUsuario) {
+		for (Usuario usuario : listaUsuario) {
+			if (usuario.getCpf().equals(cpf)) {
+				return usuario;
+			}
+		}
 		return null;
 	}
 }

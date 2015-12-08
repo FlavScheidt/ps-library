@@ -2,17 +2,8 @@ package Modelo;
 
 public class Multa {
 
-	private Integer id;
 	private Boolean pago;
-	private Float valor;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	private int valor;
 
 	public Boolean getPago() {
 		return pago;
@@ -22,18 +13,17 @@ public class Multa {
 		this.pago = pago;
 	}
 
-	public Float getValor() {
+	public int getValor() {
 		return valor;
 	}
 
-	public void setValor(Float valor) {
+	public void setValor(int valor) {
 		this.valor = valor;
 	}
 
 	//Construtores
-	public Multa(Integer id, Boolean pago, Float valor) {
+	public Multa(Boolean pago, int valor) {
 		super();
-		this.id = id;
 		this.pago = pago;
 		this.valor = valor;
 	}

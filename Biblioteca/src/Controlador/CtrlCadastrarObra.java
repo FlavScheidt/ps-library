@@ -8,8 +8,7 @@ import Modelo.Obra;
 
 public class CtrlCadastrarObra {
 	
-	public void cadastrarObra(int tp_obra, String nome, int ano, String autor, String editora, String volume, 
-								int mes, List<Obra> listaObra)
+	public void cadastrarObra(int tp_obra, String nome, int ano, String autor, String editora, String volume, int mes, List<Obra> listaObra)
 	{
 		//Livro
 		if (tp_obra == 1)

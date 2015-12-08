@@ -6,7 +6,7 @@ public class Usuario {
 	private String cpf;
 	private String nome;
 	private Integer telefone;
-	private String tipo;
+	private TipoUsuario tipo;
 
 	//Getters & Setters
 	public Integer getId() {
@@ -41,17 +41,17 @@ public class Usuario {
 		this.telefone = telefone;
 	}
 
-	public String getTipo() {
+	public TipoUsuario getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
 	}
 
 	//Construtores
 	public Usuario(Integer id, String cpf, String nome, Integer telefone,
-			String tipo) {
+			TipoUsuario tipo) {
 		super();
 		this.id = id;
 		this.cpf = cpf;
