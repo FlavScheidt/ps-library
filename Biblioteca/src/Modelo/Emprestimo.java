@@ -112,5 +112,16 @@ public class Emprestimo {
 		}
 		return false;
 	}
+	
+	private static int difDatas(Date dt1, Date dt2) {  
+        long tempo1 = dt1.getTime();  
+        long tempo2 = dt2.getTime();  
+        long difTempo = tempo2 - tempo1;  
+        return (int) ((difTempo + 60L * 60 * 1000) / (24L * 60 * 60 * 1000)) + 1;  
+    }  
+
+	public Integer calculaMulta() {
+		return (difDatas(this.dataPrevistaDevolucao, this.dataDevolucao)*5);
+	}
 
 }

@@ -10,6 +10,7 @@ import Modelo.Periodico;
 
 public class CtrlPesquisarObra {
 	
+	@SuppressWarnings("null")
 	public List<Integer> pesquisarobra(Integer tp_obra, String nome_obra, List<Obra> listaObra, List<Emprestimo> listaEmprestimo, List<Exemplar> listaExemplar)
 	{
 		List<Integer> retorno = null;
