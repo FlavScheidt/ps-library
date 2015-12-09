@@ -1,6 +1,5 @@
 package Controlador;
 
-import java.util.Iterator;
 import java.util.List;
 
 import Modelo.Usuario;
@@ -11,8 +10,6 @@ public class CtrlPagarMulta {
 
 	public void pagarMulta(String cpf, List<Usuario> listaUsuario,
 			List<Emprestimo> listaEmprestimo) {
-		
-		Boolean pago = true;
 
 		// Busca o usuário
 		Usuario usuario = buscaUsuario(cpf, listaUsuario);
@@ -21,14 +18,11 @@ public class CtrlPagarMulta {
 		for (Emprestimo emprestimo : listaEmprestimo) {
 			if (emprestimo.getUsuario() == usuario) {
 
-				// Esse null tá errado. Não sei como colocar
 				if (emprestimo.getMulta() != null) {
 					
 					if (!emprestimo.getMulta().getPago()) {
-						
+						emprestimo.getMulta().setPago(true);
 					}
-					//Multa multa = new Multa(pago, emprestimo.getMulta().getValor());
-					//emprestimo.setMulta(multa);
 				}
 			}
 		}
