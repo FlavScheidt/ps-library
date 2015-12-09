@@ -30,15 +30,17 @@ public class CtrlPesquisarObra {
 		
 		//Percorre lista de emprestimos procurando os que estao disponiveis
 		Integer disponiveis = 0;
+		Integer emprestados = 0;
 		
 		for(Emprestimo emprestimo : listaEmprestimo)
 		{
 			if (emprestimo.getExemplar().getObra().getId() == obra.getId()
-					&& emprestimo.getDataDevolucao() != null)
+					&& emprestimo.getDataDevolucao() == null)
 			{
-				disponiveis = disponiveis + 1;
+				emprestados = emprestados + 1;
 			}
 		}
+		disponiveis = numExemplares - emprestados;
 		retorno.add(disponiveis);
 		
 		return retorno;
