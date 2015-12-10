@@ -2,15 +2,15 @@ package Modelo;
 
 public class Periodico extends Obra {
 
-	private String volume;
+	private Integer volume;
 	private Integer mes;
 
-	//Getters & Setters
-	public String getVolume() {
+	// Getters & Setters
+	public Integer getVolume() {
 		return volume;
 	}
 
-	public void setVolume(String volume) {
+	public void setVolume(Integer volume) {
 		this.volume = volume;
 	}
 
@@ -21,12 +21,11 @@ public class Periodico extends Obra {
 	public void setMes(Integer mes) {
 		this.mes = mes;
 	}
-	
-	//Construtores
-	public Periodico(String nome, int ano, String volume, Integer mes) {
-		super();
+
+	// Construtores
+	public Periodico(String nome, Integer ano, Integer volume, Integer mes) {
+		super(nome, ano);
 		this.volume = volume;
 		this.mes = mes;
 	}
-
 }

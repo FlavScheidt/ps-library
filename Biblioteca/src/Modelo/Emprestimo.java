@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Emprestimo {
 
-	private Integer id;
+	private Integer  id;
 	private Date dataEmprestimo;
 	private Date dataDevolucao;
 	private Date dataPrevistaDevolucao;
@@ -13,11 +13,11 @@ public class Emprestimo {
 	private Usuario usuario;
 
 	// Getters & setters
-	public Integer getId() {
+	public Integer  getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer  id) {
 		this.id = id;
 	}
 
@@ -70,7 +70,7 @@ public class Emprestimo {
 	}
 
 	// Construtores
-	public Emprestimo(Integer id, Date dataEmprestimo, Date dataDevolucao,
+	public Emprestimo(Integer  id, Date dataEmprestimo, Date dataDevolucao,
 			Date dataPrevistaDevolucao, Exemplar exemplar, Multa multa,
 			Usuario usuario) {
 		super();
@@ -91,7 +91,7 @@ public class Emprestimo {
 		// Verifica se precisa criar multa
 		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) > 0) {
 			// Calcula valor da multa
-			int valor = 5 * (int) ((this.dataDevolucao.getTime() - this.dataPrevistaDevolucao.getTime()) / (1000 * 60 * 60 * 24));
+			Integer valor = 5 * (int) ((this.dataDevolucao.getTime() - this.dataPrevistaDevolucao.getTime()) / (1000 * 60 * 60 * 24));
 
 			// Cria multa
 			Multa multa = new Multa(false, valor);

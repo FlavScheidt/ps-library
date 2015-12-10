@@ -9,7 +9,7 @@ public class CtrlPagarMulta {
 
 	public void pagarMulta(String cpf, List<Usuario> listaUsuario, List<Emprestimo> listaEmprestimo) {
 
-		int vl_multa = 0;
+		Integer vl_multa = 0;
 		// Busca o usuário
 		Usuario usuario = buscaUsuario(cpf, listaUsuario);
 		if (usuario == null) {

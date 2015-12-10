@@ -3,7 +3,7 @@ package Modelo;
 public class Multa {
 
 	private Boolean pago;
-	private int valor;
+	private Integer valor;
 
 	public Boolean getPago() {
 		return pago;
@@ -13,16 +13,16 @@ public class Multa {
 		this.pago = pago;
 	}
 
-	public int getValor() {
+	public Integer getValor() {
 		return valor;
 	}
 
-	public void setValor(int valor) {
+	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
 
 	//Construtores
-	public Multa(Boolean pago, int valor) {
+	public Multa(Boolean pago, Integer valor) {
 		super();
 		this.pago = pago;
 		this.valor = valor;

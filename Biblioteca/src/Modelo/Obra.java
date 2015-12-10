@@ -3,18 +3,10 @@ package Modelo;
 
 public abstract class Obra {
 
-	private Integer id;
 	private String nome;
 	private Integer ano;
 	 
 	//Getters & setters
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public String getNome() {
 		return nome;
@@ -31,5 +23,13 @@ public abstract class Obra {
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
+
+	public Obra(String nome, Integer ano) {
+		super();
+		this.nome = nome;
+		this.ano = ano;
+	}
+	
+	
 	
 }

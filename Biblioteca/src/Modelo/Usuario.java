@@ -2,18 +2,18 @@ package Modelo;
 
 public class Usuario {
 
-	private Integer id;
+	private Integer  id;
 	private String cpf;
 	private String nome;
 	private Integer telefone;
 	private TipoUsuario tipo;
 
 	//Getters & Setters
-	public Integer getId() {
+	public Integer  getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer  id) {
 		this.id = id;
 	}
 
@@ -50,7 +50,7 @@ public class Usuario {
 	}
 
 	//Construtores
-	public Usuario(Integer id, String cpf, String nome, Integer telefone,
+	public Usuario(Integer  id, String cpf, String nome, Integer telefone,
 			TipoUsuario tipo) {
 		super();
 		this.id = id;

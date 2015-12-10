@@ -2,15 +2,15 @@ package Modelo;
 
 public class Exemplar {
 
-	private Integer id;
+	private Integer  id;
 	private Obra obra;
 
 	//Getters & setters
-	public Integer getId() {
+	public Integer  getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer  id) {
 		this.id = id;
 	}
 

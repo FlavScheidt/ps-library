@@ -5,7 +5,7 @@ public class Livro extends Obra {
 	private String autor;
 	private String editora;
 
-	//Getters & setters
+	// Getters & setters
 	public String getAutor() {
 		return autor;
 	}
@@ -22,12 +22,11 @@ public class Livro extends Obra {
 		this.editora = editora;
 	}
 
-	//Construtores
-	public Livro(String nome, int ano, String autor, String editora) {
-		super();
+	// Construtores
+	public Livro(String nome, Integer ano, String autor, String editora) {
+		super(nome, ano);
 		this.autor = autor;
 		this.editora = editora;
 	}
-	
 
 }
