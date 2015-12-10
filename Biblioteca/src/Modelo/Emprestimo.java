@@ -91,14 +91,12 @@ public class Emprestimo {
 		// Verifica se precisa criar multa
 		if (this.dataDevolucao.compareTo(this.dataPrevistaDevolucao) > 0) {
 			// Calcula valor da multa
-			int valor = 5 * (int) ((this.dataDevolucao.getTime() - this.dataPrevistaDevolucao
-					.getTime()) / (1000 * 60 * 60 * 24));
+			int valor = 5 * (int) ((this.dataDevolucao.getTime() - this.dataPrevistaDevolucao.getTime()) / (1000 * 60 * 60 * 24));
 
 			// Cria multa
 			Multa multa = new Multa(false, valor);
 			this.multa = multa;
 		}
-
 	}
 
 	public Boolean verificaBloqueio() {
@@ -111,17 +109,6 @@ public class Emprestimo {
 			return true;
 		}
 		return false;
-	}
-	
-	private static int difDatas(Date dt1, Date dt2) {  
-        long tempo1 = dt1.getTime();  
-        long tempo2 = dt2.getTime();  
-        long difTempo = tempo2 - tempo1;  
-        return (int) ((difTempo + 60L * 60 * 1000) / (24L * 60 * 60 * 1000)) + 1;  
-    }  
-
-	public Integer calculaMulta() {
-		return (difDatas(this.dataPrevistaDevolucao, this.dataDevolucao)*5);
 	}
 
 }

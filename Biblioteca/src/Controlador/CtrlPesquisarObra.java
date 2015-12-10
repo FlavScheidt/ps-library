@@ -10,36 +10,39 @@ import Modelo.Periodico;
 
 public class CtrlPesquisarObra {
 
-	public void pesquisarobra(int tp_obra, String nome_obra,
-			List<Obra> listaObra, List<Emprestimo> listaEmprestimo,
-			List<Exemplar> listaExemplar) {
+	public void pesquisarobra(int tp_obra, String nome_obra, List<Obra> listaObra, List<Emprestimo> listaEmprestimo, List<Exemplar> listaExemplar) {
 		// Busca obra
 		Obra obra = buscaObra(tp_obra, nome_obra, listaObra);
 
 		// Verifica se encontrou a obra
 		if (obra != null) {
 
-			// Percorre lista de exemplares para saber quantos exemplares
-			// daquela obra existem
-			Integer numExemplares = 0;
+			// Percorre lista de exemplares para saber quantos exemplares daquela obra existem
+			int numExemplares = 0;
 			for (Exemplar exemplar : listaExemplar) {
 				if (exemplar.getObra().getId() == obra.getId()) {
-					numExemplares = numExemplares + 1;
+					numExemplares++;
 				}
 			}
-			System.out.println(numExemplares);
 
 			// Percorre lista de emprestimos procurando os que estao disponiveis
-			Integer disponiveis;
-			Integer emprestados = 0;
+			if (numExemplares == 0) {
+				System.out.println("Nenhum exemplar da obra foi encontrado");
+			} else {
+				
+				int emprestados = 0;
 
-			for (Emprestimo emprestimo : listaEmprestimo) {
-				if (emprestimo.getExemplar().getObra().getId() == obra.getId()
-						&& emprestimo.getDataDevolucao() == null) {
-					emprestados = emprestados + 1;
+				for (Emprestimo emprestimo : listaEmprestimo) {
+					if (emprestimo.getExemplar().getObra().getId() == obra.getId() && emprestimo.getDataDevolucao() == null) {
+						emprestados++;
+					}
 				}
+				int disponiveis = numExemplares - emprestados;
+		
+				System.out.println("Exemplares da obra : " + numExemplares);
+				System.out.println("Exemplares disponíveis para empréstimo : " + disponiveis);
 			}
-			disponiveis = numExemplares - emprestados;
+
 		} else {
 			// Obra não encontrada
 			System.out.println("Obra não encontrada !");
@@ -49,15 +52,11 @@ public class CtrlPesquisarObra {
 	public Obra buscaObra(int tp_obra, String nome_obra, List<Obra> listaObra) {
 		for (Obra obra : listaObra) {
 			if (tp_obra == 1) {
-				if (obra.getClass().equals(Livro.class)
-						&& obra.getNome() == nome_obra) { // && obra instanceof
-															// Livro
+				if (obra.getClass().equals(Livro.class)	&& obra.getNome() == nome_obra) { // && obra instanceof Livro
 					return obra;
 				}
 			} else if (tp_obra == 2) {
-				if (obra.getClass().equals(Periodico.class)
-						&& obra.getNome() == nome_obra) { // && obra instanceof
-															// Periodico
+				if (obra.getClass().equals(Periodico.class) && obra.getNome() == nome_obra) { // && obra instanceof Periodico
 					return obra;
 				}
 			}
