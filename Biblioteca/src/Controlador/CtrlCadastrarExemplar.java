@@ -19,7 +19,7 @@ public class CtrlCadastrarExemplar {
 			// Adicionar o exemplar na lista
 			listaExemplar.add(exemplar);
 			System.out.println();
-			System.out.println("-- Exemplar cadastrada com sucesso --");
+			System.out.println("-- Exemplar cadastrado com sucesso --");
 			System.out.print("ID: " + (listaExemplar.size() - 1));
 			System.out.println("; Nome: " + nome_obra);
 			System.out.println("-------------------------------------");

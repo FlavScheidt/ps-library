@@ -1,6 +1,5 @@
 package Visao;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,9 +15,7 @@ import Controlador.CtrlPagarMulta;
 import Controlador.CtrlPesquisarObra;
 import Modelo.Emprestimo;
 import Modelo.Exemplar;
-import Modelo.Livro;
 import Modelo.Obra;
-import Modelo.Periodico;
 import Modelo.TipoUsuario;
 import Modelo.Usuario;
 
@@ -75,7 +72,8 @@ public class Biblioteca {
 						listaEmprestimo);
 				break;
 			case 6:
-				pesquisarObra(keyboard, ctrlPesquisarObra, listaObra);
+				pesquisarObra(keyboard, ctrlPesquisarObra, listaObra,
+						listaEmprestimo, listaExemplar);
 				break;
 			case 7:
 				pagarMulta(keyboard, ctrlPagarMulta, listaUsuario,
@@ -146,8 +144,8 @@ public class Biblioteca {
 				"11111", 00000000, listaUsuario);
 		ctrlCadastrarUsuario.cadastrarUsuario(TipoUsuario.ALUNO, "Elliott",
 				"22222", 00000000, listaUsuario);
-		ctrlCadastrarUsuario.cadastrarUsuario(TipoUsuario.GERAL, "Dilma",
-				"33333", 00000000, listaUsuario);
+		ctrlCadastrarUsuario.cadastrarUsuario(TipoUsuario.USUARIO_GERAL,
+				"Dilma", "33333", 00000000, listaUsuario);
 
 		// Emprestimos
 		ctrlEmprestarExemplar.emprestarExemplar(0, "33333", listaEmprestimo,
@@ -335,7 +333,8 @@ public class Biblioteca {
 	}
 
 	private static void pesquisarObra(Scanner keyboard,
-			CtrlPesquisarObra ctrlPesquisarObra, List<Obra> listaObra) {
+			CtrlPesquisarObra ctrlPesquisarObra, List<Obra> listaObra,
+			List<Emprestimo> listaEmprestimo, List<Exemplar> listaExemplar) {
 		Integer tp_obra = null;
 		String nome_obra = null;
 
@@ -355,7 +354,8 @@ public class Biblioteca {
 		nome_obra = getStringFromKeyboard(keyboard);
 
 		try {
-			ctrlPesquisarObra.buscaObra(tp_obra, nome_obra, listaObra);
+			ctrlPesquisarObra.pesquisarObra(tp_obra, nome_obra, listaObra,
+					listaEmprestimo, listaExemplar);
 		} catch (Exception e) {
 
 		}

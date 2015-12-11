@@ -43,7 +43,7 @@ public class CtrlEmprestarExemplar {
 								return;
 							}
 							break;
-						case GERAL:
+						case USUARIO_GERAL:
 							if (numEmprestimosAtivo == 1) {
 								System.out
 										.println("Usuário já possui 1 emprestimos.");
@@ -62,7 +62,8 @@ public class CtrlEmprestarExemplar {
 
 			}
 			// Busca exemplar
-			Exemplar exemplar = buscaExemplar(idExemplar, listaExemplar);
+			Exemplar exemplar = buscaExemplar(idExemplar, listaExemplar,
+					listaEmprestimo);
 
 			if (exemplar != null) {
 
@@ -78,7 +79,7 @@ public class CtrlEmprestarExemplar {
 				case ALUNO:
 					c.add(Calendar.DATE, 15);
 					break;
-				case GERAL:
+				case USUARIO_GERAL:
 					c.add(Calendar.DATE, 7);
 					break;
 				}
@@ -95,17 +96,17 @@ public class CtrlEmprestarExemplar {
 				System.out.println("-- Emprestimo realizado com sucesso --");
 				System.out.print("Usuário: " + usuario.getNome());
 				if (exemplar.getObra().getClass().equals(Livro.class)) {
-					System.out.print("; Livro: " + exemplar.getObra().getNome());
+					System.out
+							.print("; Livro: " + exemplar.getObra().getNome());
 				} else {
 					System.out.print("; Periódico: "
 							+ exemplar.getObra().getNome());
 				}
 				System.out.print("; Identificador: " + exemplar.getId());
-				System.out.println("; Data Prevista Devolução: " + dataPrevistaDevolucao);
+				System.out.println("; Data Prevista Devolução: "
+						+ dataPrevistaDevolucao);
 				System.out.println("--------------------------------------");
 
-			} else {
-				System.out.println("Exemplar não existe.");
 			}
 		} else {
 			System.out.println("Usuário não existe.");
@@ -123,13 +124,26 @@ public class CtrlEmprestarExemplar {
 	}
 
 	private Exemplar buscaExemplar(Integer idExemplar,
-			List<Exemplar> listaExemplar) {
+			List<Exemplar> listaExemplar, List<Emprestimo> listaEmprestimo) {
 
 		for (Exemplar exemplar : listaExemplar) {
 			if (exemplar.getId().equals(idExemplar)) {
+				for (Emprestimo emprestimo : listaEmprestimo) {
+					if (emprestimo.getExemplar().getId()
+							.equals(exemplar.getId())
+							&& emprestimo.getDataDevolucao() == null) {
+						System.out.println();
+						System.out
+								.println("-- Exemplar já possui um emprestimo ativo --");
+						return null;
+					}
+				}
+
 				return exemplar;
 			}
 		}
+		System.out.println();
+		System.out.println("-- Exemplar não existe --");
 		return null;
 	}
 }

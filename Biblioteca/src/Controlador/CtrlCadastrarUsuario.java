@@ -12,11 +12,13 @@ public class CtrlCadastrarUsuario {
 		// Cria usuário
 		Usuario usuario = new Usuario(listaUsuario.size(), cpf, nome, telefone,
 				tp_usuario);
-		
+
 		// Insere na lista
 		listaUsuario.add(usuario);
 		System.out.println();
-		System.out.println("-- Usuário cadastrada com sucesso --");
+		System.out.println("-- " + tp_usuario.toString().substring(0, 1)
+				+ tp_usuario.toString().toLowerCase().substring(1)
+				+ " cadastrada com sucesso --");
 		System.out.print("Nome: " + nome);
 		System.out.print("; CPF: " + cpf);
 		System.out.println("; Telefone: " + telefone);

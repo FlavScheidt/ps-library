@@ -1,7 +1,7 @@
 package Modelo;
 
 public enum TipoUsuario {
-	PROFESSOR, ALUNO, GERAL;
+	PROFESSOR, ALUNO, USUARIO_GERAL;
 
 	public static TipoUsuario fromInteger(int x) {
         switch(x) {
@@ -10,7 +10,7 @@ public enum TipoUsuario {
         case 2:
             return ALUNO;
         case 3:
-            return GERAL;
+            return USUARIO_GERAL;
         }
         return null;
     }
