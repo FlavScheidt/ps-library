@@ -14,9 +14,15 @@ public class CtrlDevolverExemplar {
 		if (emprestimo != null) {
 			// Registra a devolução
 			emprestimo.registraDevolucao();
-			System.out.println("Devolução realizada com sucesso.");
+			System.out.println();
+			System.out.println("-- Devolução realizada com sucesso --");
+			System.out.println("Nome: "
+					+ emprestimo.getExemplar().getObra().getNome());
+			System.out.println("Identificador: " + id_exemplar);
+			System.out.println("-------------------------------------");
 		} else {
-			System.out.println("Emprestimo não existe.");
+			System.out.println();
+			System.out.println("-- Emprestimo não existe --");
 		}
 
 	}

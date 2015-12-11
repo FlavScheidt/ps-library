@@ -44,6 +44,8 @@ public class CtrlPagarMulta {
 				}
 			}
 		}
+		System.out.println();
+		System.out.println("-- Multa Paga com Sucesso --");
 
 	}
 

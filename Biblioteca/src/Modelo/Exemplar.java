@@ -22,4 +22,9 @@ public class Exemplar {
 		this.obra = obra;
 	}
 
+	public Exemplar(Integer id, Obra obra) {
+		super();
+		this.id = id;
+		this.obra = obra;
+	}
 }

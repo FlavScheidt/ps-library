@@ -6,6 +6,7 @@ import java.util.List;
 
 import Modelo.Emprestimo;
 import Modelo.Exemplar;
+import Modelo.Livro;
 import Modelo.Usuario;
 
 public class CtrlEmprestarExemplar {
@@ -90,7 +91,18 @@ public class CtrlEmprestarExemplar {
 
 				// Adiciona o emprestimo na lista de emprestimos
 				listaEmprestimo.add(empr);
-				System.out.println("Emprestimo realizado com sucesso.");
+				System.out.println();
+				System.out.println("-- Emprestimo realizado com sucesso --");
+				System.out.print("Usuário: " + usuario.getNome());
+				if (exemplar.getObra().getClass().equals(Livro.class)) {
+					System.out.print("; Livro: " + exemplar.getObra().getNome());
+				} else {
+					System.out.print("; Periódico: "
+							+ exemplar.getObra().getNome());
+				}
+				System.out.print("; Identificador: " + exemplar.getId());
+				System.out.println("; Data Prevista Devolução: " + dataPrevistaDevolucao);
+				System.out.println("--------------------------------------");
 
 			} else {
 				System.out.println("Exemplar não existe.");

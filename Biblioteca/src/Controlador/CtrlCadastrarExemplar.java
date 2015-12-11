@@ -15,13 +15,15 @@ public class CtrlCadastrarExemplar {
 		Obra obra = buscaObra(tp_obra, nome_obra, listaObra);
 		if (obra != null) {
 			// Criar o exemplar
-			Exemplar exemplar = new Exemplar();
-			exemplar.setObra(obra);
-			exemplar.setId(listaExemplar.size());
+			Exemplar exemplar = new Exemplar(listaExemplar.size(), obra);
 			// Adicionar o exemplar na lista
 			listaExemplar.add(exemplar);
-			System.out.println("Exemplar cadastrada com sucesso com o id:"
-					+ (listaExemplar.size() - 1) + ".");
+			System.out.println();
+			System.out.println("-- Exemplar cadastrada com sucesso --");
+			System.out.print("ID: " + (listaExemplar.size() - 1));
+			System.out.println("; Nome: " + nome_obra);
+			System.out.println("-------------------------------------");
+
 		} else {
 			System.out.println("Obra não existe.");
 		}
