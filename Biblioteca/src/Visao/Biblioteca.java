@@ -63,15 +63,16 @@ public class Biblioteca {
 						listaExemplar, listaUsuario, listaEmprestimo);
 				break;
 			case 5:
-				System.out.println("- Devolver Exemplar -");
-
+				devolverExemplar(keyboard, ctrlDevolverExemplar,
+						listaEmprestimo);
 				break;
 			case 6:
-				System.out.println("- Pesquisar Obra -");
+				pesquisarObra(keyboard, ctrlPesquisarObra, listaObra);
 
 				break;
 			case 7:
-				System.out.println("- Pagar Multa -");
+				pagarMulta(keyboard, ctrlPagarMulta, listaUsuario,
+						listaEmprestimo);
 
 				break;
 			case 8:
@@ -88,15 +89,72 @@ public class Biblioteca {
 		keyboard.close();
 	}
 
+	private static void devolverExemplar(Scanner keyboard,
+			CtrlDevolverExemplar ctrlDevolverExemplar,
+			List<Emprestimo> listaEmprestimo) {
+		Integer id_exemplar = null;
+
+		System.out.println("- Devolver Exemplar -");
+		System.out.println();
+
+		System.out.println("Insira o identificador do exemplar:");
+		System.out.println();
+		id_exemplar = getIntFromKeyboard(keyboard);
+
+		ctrlDevolverExemplar.devolverExemplar(id_exemplar, listaEmprestimo);
+	}
+
+	private static void pesquisarObra(Scanner keyboard,
+			CtrlPesquisarObra ctrlPesquisarObra, List<Obra> listaObra) {
+		Integer tp_obra = null;
+		String nome_obra = null;
+
+		System.out.println("- Pesquisar Obra -");
+		System.out.println();
+
+		System.out.println("Escolha o tipo de obra:");
+		System.out.println("1 - Livro");
+		System.out.println("2 - Periódico");
+		System.out.println();
+		do {
+			tp_obra = getIntFromKeyboard(keyboard);
+		} while (tp_obra < 1 || tp_obra > 2);
+
+		System.out.println("Insira o nome da obra:");
+		System.out.println();
+		nome_obra = getStringFromKeyboard(keyboard);
+
+		try {
+			ctrlPesquisarObra.buscaObra(tp_obra, nome_obra, listaObra);
+		} catch (Exception e) {
+
+		}
+	}
+
+	private static void pagarMulta(Scanner keyboard,
+			CtrlPagarMulta ctrlPagarMulta, List<Usuario> listaUsuario,
+			List<Emprestimo> listaEmprestimo) {
+		System.out.println("- Pagar Multa -");
+		System.out.println();
+
+		String cpf = null;
+
+		System.out.println("Insira o CPF do usuário:");
+		System.out.println();
+		cpf = getStringFromKeyboard(keyboard);
+
+		ctrlPagarMulta.pagarMulta(cpf, listaUsuario, listaEmprestimo);
+	}
+
 	private static void emprestarExemplar(Scanner keyboard,
 			CtrlEmprestarExemplar ctrlEmprestarExemplar,
 			List<Exemplar> listaExemplar, List<Usuario> listaUsuario,
 			List<Emprestimo> listaEmprestimo) {
-		System.out.println("- Emprestar Exemplar -");
-		System.out.println();
-
 		Integer id_exemplar = null;
 		String cpf = null;
+
+		System.out.println("- Emprestar Exemplar -");
+		System.out.println();
 
 		System.out.println("Insira o identificador do exemplar:");
 		System.out.println();
@@ -106,25 +164,20 @@ public class Biblioteca {
 		System.out.println();
 		cpf = getStringFromKeyboard(keyboard);
 
-		try {
-			ctrlEmprestarExemplar.emprestarExemplar(id_exemplar, cpf,
-					listaEmprestimo, listaUsuario, listaExemplar);
-			System.out.println("Emprestimo realizado com sucesso.");
-		} catch (Exception e) {
-
-		}
+		ctrlEmprestarExemplar.emprestarExemplar(id_exemplar, cpf,
+				listaEmprestimo, listaUsuario, listaExemplar);
 	}
 
 	private static void cadastrarUsuario(Scanner keyboard,
 			CtrlCadastrarUsuario ctrlCadastrarUsuario,
 			List<Usuario> listaUsuario) {
-		System.out.println("- Cadastrar Usuário -");
-		System.out.println();
-
 		TipoUsuario tp_usuario = null;
 		Integer telefone = null;
 		String nome_usuario = null;
 		String cpf = null;
+
+		System.out.println("- Cadastrar Usuário -");
+		System.out.println();
 
 		System.out.println("Escolha o tipo de usuário:");
 		System.out.println("1 - Professor");
@@ -148,13 +201,9 @@ public class Biblioteca {
 		System.out.println("Insira o telefone do usuário:");
 		System.out.println();
 		telefone = getIntFromKeyboard(keyboard);
-		try {
-			ctrlCadastrarUsuario.cadastrarUsuario(tp_usuario, nome_usuario,
-					cpf, telefone, listaUsuario);
-			System.out.println("Usuário cadastrada com sucesso.");
-		} catch (Exception e) {
 
-		}
+		ctrlCadastrarUsuario.cadastrarUsuario(tp_usuario, nome_usuario, cpf,
+				telefone, listaUsuario);
 	}
 
 	private static void cadastrarExemplar(Scanner keyboard,
@@ -178,15 +227,8 @@ public class Biblioteca {
 		System.out.println();
 		nome_obra = getStringFromKeyboard(keyboard);
 
-		try {
-			ctrlCadastrarExemplar.cadastrarExemplar(tp_obra, nome_obra,
-					listaObra, listaExemplar);
-			System.out.println("Exemplar cadastrada com sucesso com o id:"
-					+ (listaExemplar.size() - 1) + ".");
-		} catch (Exception e) {
-
-			System.out.println("ERROR");
-		}
+		ctrlCadastrarExemplar.cadastrarExemplar(tp_obra, nome_obra, listaObra,
+				listaExemplar);
 	}
 
 	private static void cadastrarObra(Scanner keyboard,
@@ -238,13 +280,9 @@ public class Biblioteca {
 			mes = getIntFromKeyboard(keyboard);
 			break;
 		}
-		try {
-			ctrlCadastrarObra.cadastrarObra(tp_obra, nome_obra, ano,
-					nome_autor, editora, volume, mes, listaObra);
-			System.out.println("Obra cadastrada com sucesso.");
-		} catch (Exception e) {
-			System.out.println("Problema ao cadastrar a obra.");
-		}
+
+		ctrlCadastrarObra.cadastrarObra(tp_obra, nome_obra, ano, nome_autor,
+				editora, volume, mes, listaObra);
 	}
 
 	private static void imprimeMenu() {
