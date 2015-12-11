@@ -7,7 +7,8 @@ import Modelo.Usuario;
 
 public class CtrlPagarMulta {
 
-	public void pagarMulta(String cpf, List<Usuario> listaUsuario, List<Emprestimo> listaEmprestimo) {
+	public void pagarMulta(String cpf, List<Usuario> listaUsuario,
+			List<Emprestimo> listaEmprestimo) {
 
 		Integer vl_multa = 0;
 		// Busca o usuário
@@ -17,7 +18,8 @@ public class CtrlPagarMulta {
 			return;
 		}
 
-		// Percorre Lista de emprestimos buscando se algum deles tem multa, se tem e nao foi paga, soma
+		// Percorre Lista de emprestimos buscando se algum deles tem multa, se
+		// tem e nao foi paga, soma
 		for (Emprestimo emprestimo : listaEmprestimo) {
 			if (emprestimo.getUsuario().getId() == usuario.getId()) {
 				if (emprestimo.getMulta() != null) {
@@ -32,8 +34,6 @@ public class CtrlPagarMulta {
 		System.out.println("Valor da multa paga:" + vl_multa);
 
 		// Percorre lista encerrando multas
-		// Percorre Lista buscando se algum deles tem multa, se tem e nao foi
-		// paga, soma
 		for (Emprestimo emprestimo : listaEmprestimo) {
 			if (emprestimo.getUsuario() == usuario) {
 				if (emprestimo.getMulta() != null) {

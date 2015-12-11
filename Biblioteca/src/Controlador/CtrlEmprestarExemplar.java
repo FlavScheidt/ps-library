@@ -90,6 +90,7 @@ public class CtrlEmprestarExemplar {
 
 				// Adiciona o emprestimo na lista de emprestimos
 				listaEmprestimo.add(empr);
+				System.out.println("Emprestimo realizado com sucesso.");
 
 			} else {
 				System.out.println("Exemplar não existe.");

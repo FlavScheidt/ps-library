@@ -20,6 +20,8 @@ public class CtrlCadastrarExemplar {
 			exemplar.setId(listaExemplar.size());
 			// Adicionar o exemplar na lista
 			listaExemplar.add(exemplar);
+			System.out.println("Exemplar cadastrada com sucesso com o id:"
+					+ (listaExemplar.size() - 1) + ".");
 		} else {
 			System.out.println("Obra não existe.");
 		}
@@ -31,14 +33,16 @@ public class CtrlCadastrarExemplar {
 		for (Obra obra : listaObra) {
 			if (tp_obra == 1) {
 				if (obra.getClass().equals(Livro.class)
-						&& obra.getNome().equals(nome_obra)) { // && obra instanceof
-															// Livro
+						&& obra.getNome().equals(nome_obra)) { // && obra
+																// instanceof
+																// Livro
 					return obra;
 				}
 			} else if (tp_obra == 2) {
 				if (obra.getClass().equals(Periodico.class)
-						&& obra.getNome().equals(nome_obra)) { // && obra instanceof
-															// Periodico
+						&& obra.getNome().equals(nome_obra)) { // && obra
+																// instanceof
+																// Periodico
 					return obra;
 				}
 			}

@@ -14,6 +14,7 @@ public class CtrlCadastrarUsuario {
 
 		//Insere na lista
 		listaUsuario.add(usuario);
+		System.out.println("Usuário cadastrada com sucesso.");
 	}
 
 }

@@ -25,6 +25,6 @@ public class CtrlCadastrarObra {
 			// Insere na lista
 			listaObra.add(periodico);
 		}
-
+		System.out.println("Obra cadastrada com sucesso.");
 	}
 }
