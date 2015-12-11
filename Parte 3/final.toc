@@ -1,0 +1,39 @@
+\changetocdepth {4}
+\select@language {brazil}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Modelos de Casos de Uso}}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Diagrama de Casos de Uso}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Casos de Uso Estendidos}{3}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Cadastrar Exemplar}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Cadastrar Obra}{4}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Cadastrar Usu\IeC {\'a}rio}{6}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Devolver Exemplar}{7}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Emprestar Exemplar}{9}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}Pagar Multa}{11}{subsection.1.2.6}
+\contentsline {subsection}{\numberline {1.2.7}Pesquisar Obra}{12}{subsection.1.2.7}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Diagramas de Sequ\IeC {\^e}ncia}}{14}{chapter.2}
+\contentsline {subsection}{\numberline {2.0.8}Cadastrar Exemplar}{14}{subsection.2.0.8}
+\contentsline {subsection}{\numberline {2.0.9}Cadastrar Obra}{14}{subsection.2.0.9}
+\contentsline {subsection}{\numberline {2.0.10}Cadastrar Usu\IeC {\'a}rio}{15}{subsection.2.0.10}
+\contentsline {subsection}{\numberline {2.0.11}Devolver Exemplar}{15}{subsection.2.0.11}
+\contentsline {subsection}{\numberline {2.0.12}Emprestar Exemplar}{16}{subsection.2.0.12}
+\contentsline {subsection}{\numberline {2.0.13}Pagar Multa}{16}{subsection.2.0.13}
+\contentsline {subsection}{\numberline {2.0.14}Pesquisar Obra}{17}{subsection.2.0.14}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Modelo Conceitual}}{18}{chapter.3}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Diagramas de Colabora\IeC {\c c}\IeC {\~a}o}}{19}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.15}Cadastrar Exemplar}{19}{subsection.4.0.15}
+\contentsline {subsection}{\numberline {4.0.16}Cadastrar Obra}{19}{subsection.4.0.16}
+\contentsline {subsection}{\numberline {4.0.17}Cadastrar Usu\IeC {\'a}rio}{20}{subsection.4.0.17}
+\contentsline {subsection}{\numberline {4.0.18}Devolver Exemplar}{20}{subsection.4.0.18}
+\contentsline {subsection}{\numberline {4.0.19}Emprestar Exemplar}{21}{subsection.4.0.19}
+\contentsline {subsection}{\numberline {4.0.20}Pagar Multa}{21}{subsection.4.0.20}
+\contentsline {subsection}{\numberline {4.0.21}Pesquisar Obra}{22}{subsection.4.0.21}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Diagrama de Classes}}{23}{chapter.5}
+\vspace {\cftbeforechapterskip }
+\vspace {\cftbeforechapterskip }
+\vspace {\cftbeforechapterskip }
