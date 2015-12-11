@@ -21,66 +21,59 @@ import Modelo.Usuario;
 
 public class Biblioteca {
 
+	static Scanner keyboard = new Scanner(System.in);
+
+	// Instancia os controladores
+	static CtrlCadastrarObra ctrlCadastrarObra = new CtrlCadastrarObra();
+	static CtrlCadastrarExemplar ctrlCadastrarExemplar = new CtrlCadastrarExemplar();
+	static CtrlCadastrarUsuario ctrlCadastrarUsuario = new CtrlCadastrarUsuario();
+	static CtrlEmprestarExemplar ctrlEmprestarExemplar = new CtrlEmprestarExemplar();
+	static CtrlDevolverExemplar ctrlDevolverExemplar = new CtrlDevolverExemplar();
+	static CtrlPesquisarObra ctrlPesquisarObra = new CtrlPesquisarObra();
+	static CtrlPagarMulta ctrlPagarMulta = new CtrlPagarMulta();
+
+	// Cria as listas
+	static List<Obra> listaObra = new ArrayList<Obra>();
+	static List<Exemplar> listaExemplar = new ArrayList<Exemplar>();
+	static List<Usuario> listaUsuario = new ArrayList<Usuario>();
+	static List<Emprestimo> listaEmprestimo = new ArrayList<Emprestimo>();
+	
 	public static void main(String[] arguments) {
-		Scanner keyboard = new Scanner(System.in);
-
-		// Instancia os controladores
-		CtrlCadastrarObra ctrlCadastrarObra = new CtrlCadastrarObra();
-		CtrlCadastrarExemplar ctrlCadastrarExemplar = new CtrlCadastrarExemplar();
-		CtrlCadastrarUsuario ctrlCadastrarUsuario = new CtrlCadastrarUsuario();
-		CtrlEmprestarExemplar ctrlEmprestarExemplar = new CtrlEmprestarExemplar();
-		CtrlDevolverExemplar ctrlDevolverExemplar = new CtrlDevolverExemplar();
-		CtrlPesquisarObra ctrlPesquisarObra = new CtrlPesquisarObra();
-		CtrlPagarMulta ctrlPagarMulta = new CtrlPagarMulta();
-
-		// Cria as listas
-		List<Obra> listaObra = new ArrayList<Obra>();
-		List<Exemplar> listaExemplar = new ArrayList<Exemplar>();
-		List<Usuario> listaUsuario = new ArrayList<Usuario>();
-		List<Emprestimo> listaEmprestimo = new ArrayList<Emprestimo>();
-
-		populaListas(listaObra, listaExemplar, listaUsuario, listaEmprestimo,
-				ctrlCadastrarObra, ctrlCadastrarExemplar, ctrlCadastrarUsuario,
-				ctrlEmprestarExemplar, ctrlDevolverExemplar);
 
 		// Inicio
 		int option = 0;
-		clearConsole();
 		while (option != 8) {
 			// Faz a leitura da tecla, descartando o que não for números
 
 			imprimeMenu();
-			option = getIntFromKeyboard(keyboard);
-			clearConsole();
+			option = getIntFromKeyboard();
 			switch (option) {
 			case 1:
-				cadastrarObra(keyboard, ctrlCadastrarObra, listaObra);
+				cadastrarObra();
 				break;
 			case 2:
-				cadastrarExemplar(keyboard, ctrlCadastrarExemplar, listaObra,
-						listaExemplar);
+				cadastrarExemplar();
 				break;
 			case 3:
-				cadastrarUsuario(keyboard, ctrlCadastrarUsuario, listaUsuario);
+				cadastrarUsuario();
 				break;
 			case 4:
-				emprestarExemplar(keyboard, ctrlEmprestarExemplar,
-						listaExemplar, listaUsuario, listaEmprestimo);
+				emprestarExemplar();
 				break;
 			case 5:
-				devolverExemplar(keyboard, ctrlDevolverExemplar,
-						listaEmprestimo);
+				devolverExemplar();
 				break;
 			case 6:
-				pesquisarObra(keyboard, ctrlPesquisarObra, listaObra,
-						listaEmprestimo, listaExemplar);
+				pesquisarObra();
 				break;
 			case 7:
-				pagarMulta(keyboard, ctrlPagarMulta, listaUsuario,
-						listaEmprestimo);
+				pagarMulta();
 				break;
 			case 8:
 				System.out.println("- Sair -");
+				break;
+			case 99:
+				populaListas();
 				break;
 			default:
 				System.out.println("Opção Inválida!");
@@ -90,14 +83,7 @@ public class Biblioteca {
 		keyboard.close();
 	}
 
-	private static void populaListas(List<Obra> listaObra,
-			List<Exemplar> listaExemplar, List<Usuario> listaUsuario,
-			List<Emprestimo> listaEmprestimo,
-			CtrlCadastrarObra ctrlCadastrarObra,
-			CtrlCadastrarExemplar ctrlCadastrarExemplar,
-			CtrlCadastrarUsuario ctrlCadastrarUsuario,
-			CtrlEmprestarExemplar ctrlEmprestarExemplar,
-			CtrlDevolverExemplar ctrlDevolverExemplar) {
+	private static void populaListas() {
 
 		// Obras
 		ctrlCadastrarObra.cadastrarObra(1, "Harry Potter", 1997,
@@ -178,8 +164,7 @@ public class Biblioteca {
 
 	}
 
-	private static void cadastrarObra(Scanner keyboard,
-			CtrlCadastrarObra ctrlCadastrarObra, List<Obra> listaObra) {
+	private static void cadastrarObra() {
 		String nome_obra = null;
 		String nome_autor = null;
 		String editora = null;
@@ -196,35 +181,35 @@ public class Biblioteca {
 		System.out.println("2 - Periódico");
 		System.out.println();
 		do {
-			tp_obra = getIntFromKeyboard(keyboard);
+			tp_obra = getIntFromKeyboard();
 		} while (tp_obra < 1 || tp_obra > 2);
 
 		System.out.println("Insira o nome da obra:");
 		System.out.println();
-		nome_obra = getStringFromKeyboard(keyboard);
+		nome_obra = getStringFromKeyboard();
 
 		System.out.println("Insira o ano da obra:");
 		System.out.println();
-		ano = getIntFromKeyboard(keyboard);
+		ano = getIntFromKeyboard();
 
 		switch (tp_obra) {
 		case 1:
 			System.out.println("Insira o nome do autor:");
 			System.out.println();
-			nome_autor = getStringFromKeyboard(keyboard);
+			nome_autor = getStringFromKeyboard();
 
 			System.out.println("Insira o nome da editora:");
 			System.out.println();
-			editora = getStringFromKeyboard(keyboard);
+			editora = getStringFromKeyboard();
 			break;
 		case 2:
 			System.out.println("Insira o volume:");
 			System.out.println();
-			volume = getIntFromKeyboard(keyboard);
+			volume = getIntFromKeyboard();
 
 			System.out.println("Insira o mes:");
 			System.out.println();
-			mes = getIntFromKeyboard(keyboard);
+			mes = getIntFromKeyboard();
 			break;
 		}
 
@@ -232,9 +217,7 @@ public class Biblioteca {
 				editora, volume, mes, listaObra);
 	}
 
-	private static void cadastrarExemplar(Scanner keyboard,
-			CtrlCadastrarExemplar ctrlCadastrarExemplar, List<Obra> listaObra,
-			List<Exemplar> listaExemplar) {
+	private static void cadastrarExemplar() {
 		Integer tp_obra = null;
 		String nome_obra = null;
 
@@ -246,20 +229,18 @@ public class Biblioteca {
 		System.out.println("2 - Periódico");
 		System.out.println();
 		do {
-			tp_obra = getIntFromKeyboard(keyboard);
+			tp_obra = getIntFromKeyboard();
 		} while (tp_obra < 1 || tp_obra > 2);
 
 		System.out.println("Insira o nome da obra:");
 		System.out.println();
-		nome_obra = getStringFromKeyboard(keyboard);
+		nome_obra = getStringFromKeyboard();
 
 		ctrlCadastrarExemplar.cadastrarExemplar(tp_obra, nome_obra, listaObra,
 				listaExemplar);
 	}
 
-	private static void cadastrarUsuario(Scanner keyboard,
-			CtrlCadastrarUsuario ctrlCadastrarUsuario,
-			List<Usuario> listaUsuario) {
+	private static void cadastrarUsuario() {
 		TipoUsuario tp_usuario = null;
 		Integer telefone = null;
 		String nome_usuario = null;
@@ -275,30 +256,27 @@ public class Biblioteca {
 		System.out.println();
 		int vl_tpUsuario;
 		do {
-			vl_tpUsuario = getIntFromKeyboard(keyboard);
+			vl_tpUsuario = getIntFromKeyboard();
 			tp_usuario = TipoUsuario.fromInteger(vl_tpUsuario);
 		} while (vl_tpUsuario < 1 || vl_tpUsuario > 3);
 
 		System.out.println("Insira o nome do usuário:");
 		System.out.println();
-		nome_usuario = getStringFromKeyboard(keyboard);
+		nome_usuario = getStringFromKeyboard();
 
 		System.out.println("Insira o CPF do usuário:");
 		System.out.println();
-		cpf = getStringFromKeyboard(keyboard);
+		cpf = getStringFromKeyboard();
 
 		System.out.println("Insira o telefone do usuário:");
 		System.out.println();
-		telefone = getIntFromKeyboard(keyboard);
+		telefone = getIntFromKeyboard();
 
 		ctrlCadastrarUsuario.cadastrarUsuario(tp_usuario, nome_usuario, cpf,
 				telefone, listaUsuario);
 	}
 
-	private static void emprestarExemplar(Scanner keyboard,
-			CtrlEmprestarExemplar ctrlEmprestarExemplar,
-			List<Exemplar> listaExemplar, List<Usuario> listaUsuario,
-			List<Emprestimo> listaEmprestimo) {
+	private static void emprestarExemplar() {
 		Integer id_exemplar = null;
 		String cpf = null;
 
@@ -307,19 +285,17 @@ public class Biblioteca {
 
 		System.out.println("Insira o identificador do exemplar:");
 		System.out.println();
-		id_exemplar = getIntFromKeyboard(keyboard);
+		id_exemplar = getIntFromKeyboard();
 
 		System.out.println("Insira o CPF do usuário:");
 		System.out.println();
-		cpf = getStringFromKeyboard(keyboard);
+		cpf = getStringFromKeyboard();
 
 		ctrlEmprestarExemplar.emprestarExemplar(id_exemplar, cpf,
 				listaEmprestimo, listaUsuario, listaExemplar);
 	}
 
-	private static void devolverExemplar(Scanner keyboard,
-			CtrlDevolverExemplar ctrlDevolverExemplar,
-			List<Emprestimo> listaEmprestimo) {
+	private static void devolverExemplar() {
 		Integer id_exemplar = null;
 
 		System.out.println("- Devolver Exemplar -");
@@ -327,14 +303,12 @@ public class Biblioteca {
 
 		System.out.println("Insira o identificador do exemplar:");
 		System.out.println();
-		id_exemplar = getIntFromKeyboard(keyboard);
+		id_exemplar = getIntFromKeyboard();
 
 		ctrlDevolverExemplar.devolverExemplar(id_exemplar, listaEmprestimo);
 	}
 
-	private static void pesquisarObra(Scanner keyboard,
-			CtrlPesquisarObra ctrlPesquisarObra, List<Obra> listaObra,
-			List<Emprestimo> listaEmprestimo, List<Exemplar> listaExemplar) {
+	private static void pesquisarObra() {
 		Integer tp_obra = null;
 		String nome_obra = null;
 
@@ -346,12 +320,12 @@ public class Biblioteca {
 		System.out.println("2 - Periódico");
 		System.out.println();
 		do {
-			tp_obra = getIntFromKeyboard(keyboard);
+			tp_obra = getIntFromKeyboard();
 		} while (tp_obra < 1 || tp_obra > 2);
 
 		System.out.println("Insira o nome da obra:");
 		System.out.println();
-		nome_obra = getStringFromKeyboard(keyboard);
+		nome_obra = getStringFromKeyboard();
 
 		try {
 			ctrlPesquisarObra.pesquisarObra(tp_obra, nome_obra, listaObra,
@@ -361,9 +335,7 @@ public class Biblioteca {
 		}
 	}
 
-	private static void pagarMulta(Scanner keyboard,
-			CtrlPagarMulta ctrlPagarMulta, List<Usuario> listaUsuario,
-			List<Emprestimo> listaEmprestimo) {
+	private static void pagarMulta() {
 		System.out.println("- Pagar Multa -");
 		System.out.println();
 
@@ -371,7 +343,7 @@ public class Biblioteca {
 
 		System.out.println("Insira o CPF do usuário:");
 		System.out.println();
-		cpf = getStringFromKeyboard(keyboard);
+		cpf = getStringFromKeyboard();
 
 		ctrlPagarMulta.pagarMulta(cpf, listaUsuario, listaEmprestimo);
 	}
@@ -395,12 +367,12 @@ public class Biblioteca {
 		System.out.println();
 	}
 
-	private static int getIntFromKeyboard(Scanner keyboard) {
+	private static int getIntFromKeyboard() {
 		int retorno = 0;
 		boolean inteiro = false;
 		do {
 			try {
-				retorno = Integer.parseInt(getStringFromKeyboard(keyboard));
+				retorno = Integer.parseInt(getStringFromKeyboard());
 				inteiro = true;
 			} catch (Exception e) {
 				System.out.println("Opção Inválida!");
@@ -410,23 +382,10 @@ public class Biblioteca {
 		return retorno;
 	}
 
-	private static String getStringFromKeyboard(Scanner keyboard) {
+	private static String getStringFromKeyboard() {
 		String retorno = "";
 		retorno = keyboard.nextLine();
 		return retorno;
-	}
-
-	private static void clearConsole() {
-		try {
-			final String os = System.getProperty("os.name");
-			if (os.contains("Windows")) {
-				Runtime.getRuntime().exec("cls");
-			} else {
-				Runtime.getRuntime().exec("clear");
-			}
-		} catch (final Exception e) {
-			System.out.println("ERRO CLEAR");
-		}
 	}
 
 }
